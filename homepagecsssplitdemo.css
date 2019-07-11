@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Source+Serif+Pro&display=swap');
 
-
-
+/*.col-lg-7 {*/
+/*    max-width: 1400px!important;*/
+/*}*/
+main#end.row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
 .slide {
     position: relative;
     padding: 25vh 10%;
@@ -11,6 +17,7 @@
     box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
     transform-style: inherit;
 }
+
 .slide:before {
     content: "";
     position: absolute;
@@ -25,7 +32,7 @@
     width: 50%;
     padding: 5%;
     border-radius: 5px;
-    background: rgba(240,230,220, .7);
+    background: rgba(240, 230, 220, .7);
     box-shadow: 0 0 8px rgba(0, 0, 0, .7);
 }
 
@@ -43,12 +50,9 @@
     background: 50% 50% / cover;
 }
 
-#slide1:before {
-    transform: translateZ(-1px) scale(2);
-}
-
-
-
+/*#slide1:before {*/
+/*    transform: translateZ(-1px) scale(2);*/
+/*}*/
 
 
 html {
@@ -58,20 +62,24 @@ html {
 h4, h1, #title {
     font-family: 'Source Serif Pro', serif;;
 }
+
 .arrow-pulse-down:after {
     content: "➜"; /* Here you can change the style of the arrow */
     transform: rotate(90deg);
     font-family: inherit;
     /*∇*/
     position: absolute;
-    width: 70px; height: 70px;
+    width: 70px;
+    height: 70px;
     margin: 0 auto;
-    left: 0; right: 0;
+    left: 0;
+    right: 0;
     font-size: 70px;
     animation: arrow-pulse-down 1000ms linear infinite;
     color: whitesmoke;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
 @keyframes arrow-pulse-down {
     0% {
         bottom: 40px;
@@ -91,9 +99,11 @@ h4, h1, #title {
         opacity: 1;
     }
 }
+
 .card-img-top {
     max-height: 208px;
 }
+
 .card-text {
     font-size: 1.2rem;
 }
@@ -139,6 +149,7 @@ body {
     background-position: center;
     /*background-repeat: no-repeat;*/
     /*background-size: cover;*/
+    /*background-size: contain;*/
     margin-top: 55px;
 }
 
@@ -294,7 +305,7 @@ h1 {
 }
 
 .btn-primary:hover {
-    background-color: orange;
+    background-color: darkblue;
 }
 
 #jumbo {
@@ -447,13 +458,16 @@ main {
     h5 {
         font-size: 1.5rem;
     }
+
     .mainContainerColor {
-        margin-right: 2% !important; margin-left: 2% !important;
+        margin-right: 2% !important;
+        margin-left: 2% !important;
         margin-top: 0;
     }
-    .col-lg-4, .col-lg-8 {
-        /*width: 50% !important;*/
-    }
+
+    /*.col-lg-4, .col-lg-8 {*/
+    /*    !*width: 50% !important;*!*/
+    /*}*/
     .cardsLargeScreen {
         max-width: 80% !important;
     }
