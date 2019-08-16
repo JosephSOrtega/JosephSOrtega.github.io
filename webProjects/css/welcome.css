@@ -1,0 +1,362 @@
+/*
+this file is named "site.css" and is in a directory named "css"
+*/
+
+.fancy-header {
+    color: deepskyblue;
+    text-decoration: underline orange;
+}
+.look-at-me {
+    color: red;
+    text-decoration: underline;
+    font-family: "Apple LiGothic";
+}
+.bigger-font {
+    font-size: 3em;
+    text-align: center;
+    margin-block: 5em;
+}
+#bottom-table-head {
+    text-align: left;
+    margin-left: 5em;
+}
+#mind {
+    border-radius: 7px;
+    border: 5px solid black;
+    padding: 1em;
+}
+body {
+    background-image: url("https://i.pinimg.com/originals/47/b5/67/47b567ff37393b5c564cbe1186e90662.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: whitesmoke;
+}
+main {
+    background-color: dimgrey;
+    display: inline-block;
+    margin: 1em;
+    text-align: center;
+    border-radius: 7px;
+    border: 5px solid black;
+}
+header {
+    background-color: dimgrey;
+    text-align: center;
+    border-radius: 7px;
+    border: 5px solid black;
+}
+footer {
+    color: black;
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 3em;
+}
+h1 {
+    color: orange;
+    text-decoration: underline lightblue;
+    text-align: center;
+    background-color: dimgrey;
+}
+h2 {
+    color: lightblue;
+    text-decoration: underline orange;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 1em;
+}
+a {
+    color: orange;
+}
+ul {
+    list-style-type: lower-roman;
+    text-align: center;
+    list-style-position: inside;
+}
+ol {
+    list-style-type: lower-roman;
+    text-align: center;
+    list-style-position: inside;
+}
+td, tr {
+    padding: 10px;
+    font-size: 16px;
+    border: solid 2px black;
+}
+a:link  {
+    color: darkslateblue;
+}
+a:visited {
+    color: darkcyan;
+}
+a:hover {
+    color: sandybrown;
+}
+a:active {
+    color: blue;
+}  
+img {
+    float: bottom;
+    object-fit: cover;
+}
+table {
+    margin: 1em;
+    border: solid 2px black;
+    border-inline: solid 2px black;
+}
+li:hover {
+    font-family: "Comic Sans MS";
+    text-size: 3em;
+
+}
+
+
+
+                        /*Testing below, mind our dust!*/
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:700);
+
+/* counters */
+
+body {
+    counter-reset: sum;
+}
+
+#a:checked { counter-increment: sum 30; }
+#b:checked { counter-increment: sum 10; }
+#c:checked { counter-increment: sum 0; }
+#d:checked { counter-increment: sum 0; }
+#e:checked { counter-increment: sum 2; }
+#f:checked { counter-increment: sum 0; }
+
+.sum::before {
+    content: '= ' counter(sum);
+}
+
+                        /* the rest is just to make things pretty */
+
+
+input {
+    position: absolute;
+    left: -9999px;
+}
+
+label {
+    float: inside;
+    margin: 4px;
+    padding: 16px;
+    border-radius: 4px;
+    border: solid 3px black;
+    background-color: gray;
+    cursor: pointer;
+    transition: all .1s;
+}
+
+label:before {
+    display: inline;
+}
+
+input:checked + label {
+    border: solid 3px black;
+    background-color: gray;
+    box-shadow: 0 0 10px black;
+}
+
+span {
+    float: inherit;
+    margin: 10px;
+    padding: 18px;
+    border-radius: 4px;
+    border: 3px solid black;
+    background-color: darkorange;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#a:checked ~ #b:checked ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:checked ~ #f:not(:checked) ~ .sum::after {
+    content: ' (You Got The Joke!)';
+}
+#bottom-counter {
+    margin-bottom: 2em;
+}
+
+                                /*shady shit below.....*/
+
+.thumbnail-grid {
+    user-select: none
+}
+.thumbnail-grid figure {
+    position: relative;
+    width: auto;
+    height: 150px;
+    margin: 5px;
+    border-radius: 3px;
+    box-shadow: inset 0 -40px 0 0 rgba(0,0,0,.1);
+    transition: all .2s ease-in-out;
+}
+.thumbnail-grid figure:hover {
+    box-shadow: inset 0 -150px 0 0 rgba(0,0,0,.5);
+}
+.thumbnail-grid figcaption {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #f4f4f4;
+    text-shadow: 0 0 3px #000;
+    bottom: 10px;
+    transition: all .2s ease-in-out
+}
+.thumbnail-grid figure:hover figcaption {
+    bottom: 100px
+}
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch
+}
+.flex-item {
+    flex: 1 0 auto
+}
+
+                    /*Thumbnails*/
+.thumbnail-grid figure.i1 {
+    background: url(../img/AgentTulip.png) no-repeat center;
+    background-size: contain;
+}
+.thumbnail-grid figure.i2 {
+    background: url(../img/Desmond.png) no-repeat center;
+    background-size: contain;
+}
+.thumbnail-grid figure.i3 {
+    background: url(../img/Durango.png) no-repeat center;
+    background-size: contain;
+}
+
+
+                /*Next part, dat cool scrolling thing!*/
+/*
+body {
+    margin:0;
+    padding:0;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: Nunito;
+}
+
+h1 {
+    font-size: 250%
+}
+
+p {
+    font-size: 140%;
+    line-height: 150%;
+    color: #333;
+}
+
+.slide {
+    position: relative;
+    padding: 25vh 10%;
+    min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+    transform-style: inherit;
+}
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 320px;
+    height: 240px;
+    transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+    float: inherit;
+}
+
+img:last-of-type {
+    transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+}
+
+.title {
+    width: 50%;
+    padding: 5%;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.slide:nth-child(2n) .title {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.slide:nth-child(2n+1) .title {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.slide, .slide:before {
+    background: 50% 50% / cover;
+}
+
+.header {
+    text-align: center;
+    font-size: 175%;
+    color: #fff;
+    text-shadow: 0 2px 2px #000;
+}
+
+#title {
+    background-image: url("https://previews.123rf.com/images/me67kz/me67kz1701/me67kz170100126/72521404-aged-paper-background-natural-old-paper-texture-for-the-design-.jpg");
+    z-index:2;
+}
+
+#title h1 {
+    transform: translateZ(.25px) scale(.75);
+    transform-origin: 50% 100%;
+
+}
+
+#slide1:before {
+    background-image: url("https://previews.123rf.com/images/me67kz/me67kz1701/me67kz170100126/72521404-aged-paper-background-natural-old-paper-texture-for-the-design-.jpg");
+    transform: translateZ(-1px) scale(2);
+}
+
+#slide2 {
+    background-image: url("https://previews.123rf.com/images/me67kz/me67kz1701/me67kz170100126/72521404-aged-paper-background-natural-old-paper-texture-for-the-design-.jpg");
+    z-index:2;
+}
+
+#slide3:before {
+    background-image: url("https://previews.123rf.com/images/me67kz/me67kz1701/me67kz170100126/72521404-aged-paper-background-natural-old-paper-texture-for-the-design-.jpg");
+    transform: translateZ(-1px) scale(2);
+}
+
+#slide4 {
+    background: #222;
+}

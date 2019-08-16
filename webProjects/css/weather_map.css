@@ -1,0 +1,58 @@
+.box {
+    text-align: center;
+}
+
+.fas {
+    font-size: smaller;
+    vertical-align: super;
+    color: #343A40;
+}
+
+.fa-temperature-high, .fa-temperature-low {
+    color: white
+}
+
+h4 {
+    font-size: large;
+
+}
+
+h4, .mainBox, #features {
+    border-radius: 5px;
+    border: dimgray 1px solid;
+    padding: 5px;
+}
+
+.weatherIcon {
+    font-size: 2.5rem;
+}
+
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
+
+.input-group {
+    max-width: 60%;
+    margin-top: .5em;
+    margin-bottom: .4em !important;
+}
+
+#map {
+    border-radius: 5px;
+    border: dimgray 5px solid;
+}
+
+#features {
+    max-width: 80%;
+    margin-top: 1em;
+}

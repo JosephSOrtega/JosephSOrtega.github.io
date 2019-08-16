@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet'/>
+
+    <link rel="stylesheet" href="css/weather_map.css">
+    <script src="https://kit.fontawesome.com/9ec51008e6.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="js/keys.js"></script>
+    <script src="js/mapbox-geocoder-utils-darksky.js"></script>
+    <script src="js/weather_map.js"></script>
+
+
+</head>
+<body>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet'
+      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css'
+      type='text/css'/>
+
+
+<nav class="navbar navbar-light bg-dark text-light">
+    <a class="navbar-brand text-light" href="#">
+        <i class="fas fa-umbrella d-inline-block align-top" alt="" style="color: whitesmoke;"></i>
+        Weather Mapper
+    </a>
+    <h6>A Super Cool Weather Application</h6>
+
+</nav>
+<div class="mainBox container">
+    <h3>San Antonio</h3>
+
+    <div class="row">
+        <!--    Box 1-->
+        <div id="box1" class="box col-4">
+
+        </div>
+
+
+        <!--    Box 2-->
+        <div id="box2" class="box col-4">
+
+        </div>
+
+
+        <!--    Box 3-->
+        <div id="box3" class="box col-4">
+
+        </div>
+    </div>
+    <div class="input-group mb-3 justify-content-center col-12 mx-auto">
+        <input type="text" id='geocoder' aria-label="First name" placeholder="Enter in a location"
+               class="form-control">
+
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="geoButton">Search!</button>
+        </div>
+    </div>
+
+    <div id='map' style='width: 100%; height: 100%; min-width: 350px;min-height: 350px'></div>
+    <div id='restart' class='restart'></div>
+
+
+    <pre id='coordinates' class='coordinates'></pre>
+    <div class="col-12 mx-auto" id="features" style="margin-bottom: 1em">
+        <div>
+            <h5 style="text-align: center">Map's Features:</h5>
+            <ul style="list-style: none; padding-left: 2px">
+                <li class="col-8" style="margin-bottom: .5em"><p><strong>1)</strong> Displays 3 day forecast of San Antonio</p></li>
+                <li class="col-8" style="margin-bottom: .5em"><p><strong>2)</strong> Enter in a location to see the forecast there</p></li>
+                <li class="col-12" style="margin-bottom: .5em"><p><strong>3)</strong> Drag the blue marker on the map to get the address of the marker's new position and the 3 day
+                    forecast there
+                </p></li>
+                <li class="col-8" style="margin-bottom: .5em"><p><strong>4)</strong> Click the Geolocation button on the top right of the map to get your exact location</p></li>
+
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    var coord;
+    var mark = function () {
+        if (marker === undefined) {
+            marker = new mapboxgl.Marker({
+                draggable: true
+            })
+                .setLngLat(coord)
+                .addTo(map);
+        } else {
+            marker.setLngLat(coord)
+        }
+        map.panTo(coord, {
+            zoom: 10,
+            duration: 1000,
+            animate: true
+        });
+
+    };
+
+
+    function finder() {
+        geocode(val, mapBoxAccessKey).then(function (results) {
+            var lng = results[0].toFixed(4);
+            var lat = results[1].toFixed(4);
+            console.log(lng);
+            console.log(lat);
+
+            coord = [lng, lat];
+            console.log(coord);
+            mark()
+
+
+            // var marker = new mapboxgl.Marker({
+            //     draggable: true
+            // })
+            //     .setLngLat([lng,lat])
+            //     .addTo(map);
+
+        }).then(function () {
+            reverseGeocode({lng: coord[0], lat: coord[1]}, mapBoxAccessKey).then(function (results) {
+                console.log(results);
+                $('h3').html(results)
+            });
+
+        }).then(function () {
+            coordinates.style.display = 'block';
+            coordinates.innerHTML = 'Longitude: ' + coord[0] + '<br />Latitude: ' + coord[1];
+            refreshed();
+
+        })
+    }
+
+
+    var val;
+
+    //mew searchbar
+
+    $('#geoButton').on('click', function () {
+        val = $('#geocoder').val().toString();
+        console.log(val);
+        finder();
+    });
+
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        var lng = lngLat.lng.toFixed(4);
+        var lat = lngLat.lat.toFixed(4);
+        coord = [lng, lat];
+        console.log(lng);
+        console.log(lat);
+
+        reverseGeocode({lng: lng, lat: lat}, mapBoxAccessKey).then(function (results) {
+            console.log(results);
+            $('h3').html(results)
+        });
+
+
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = 'Longitude: ' + lng + '<br />Latitude: ' + lat;
+        refreshed();
+    }
+
+    // function geocodeMe() {
+    //
+    // }
+
+    mapboxgl.accessToken = mapBoxAccessKey;
+    var coordinates = document.getElementById('coordinates');
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    });
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
+
+
+    marker.on('dragend', onDragEnd);
+
+
+    map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    }));
+
+    // $('#pushed').on('click', pushed);
+
+    // map.addControl(new mapboxgl.GeolocateControl({
+    //     positionOptions: {
+    //         enableHighAccuracy: true
+    //     },
+    //     trackUserLocation: true
+    // }));
+    // function success(pos) {
+    //     var crd = pos.coords;
+    //
+    //     console.log("Your current position is:");
+    //     console.log("Latitude : ${crd.latitude}");
+    //     console.log("Longitude: ${crd.longitude}");
+    //     console.log("More or less ${crd.accuracy} meters.");
+    // }
+    //
+    // function error(err) {
+    //     console.warn("ERROR(${err.code}): ${err.message}");
+    // }
+    //
+    // navigator.geolocation.getCurrentPosition(success, error, options);
+
+
+</script>
+
+
+<script>AOS.init();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>

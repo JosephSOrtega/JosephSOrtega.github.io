@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Club</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <script src="mapboxTokenAgain.js"></script>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/9ec51008e6.js"></script>
+    <script src="mapbox-geocoder-utils.js"></script>
+
+
+</head>
+<body>
+<link rel='stylesheet'
+      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css'
+      type='text/css'/>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+
+<nav class="navbar navbarColor topBarBackground justify-content-center">
+    <!--    Navbar main-->
+
+    <div id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto list-group list-group-horizontal">
+            <li class="justify-content-start">
+                <a class="navbar-brand paddingTopBar" id="coffeeClub" style="font-size: 30px;">Coffee Club</a>
+            </li>
+            <li class="nav-item list-group-item active">
+                <a class="nav-link" href="#">Caffeine Overdose - Newsletter <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item list-group-item">
+                <a class="nav-link" href="index.html" style="margin-right: 1em;">Buy Some Coffee!</a>
+            </li>
+            <li class="list-group-item" id="zipSearch">
+                <form class="form-inline my-2 my-lg-0" id="morePaddingZip">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Zip code" aria-label="Search">
+                    <button id="buttonTop" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button>
+                </form>
+            </li>
+            <li>
+                <button class="navbar-toggler justify-content-end paddingTopBar" id="menu" type="button" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="nav-link" href="WhatToDo.html" style="float: right;color: whitesmoke;font-size: 1.5em;"> <i class="fas fa-mug-hot"></i> Menu</a>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container shadow" id="conBackground">
+    <div>
+
+        <section class="d-none d-md-block">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container" style="padding: 0;opacity: .7;">
+                    <h1 class="display-4">Welcome to the Coffee Club!</h1>
+                </div>
+            </div>
+        </section>
+        <h1 style="opacity: .9; border-radius: 5px;">Coffee!</h1>
+        <hr>
+
+
+        <!--Start content-->
+        <div class="container">
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="col-6">
+
+                    <div id="coffees" class="row">
+                    </div>
+
+                </div>
+                <div class="col-6" style="padding-left: 60px">
+                    <div>
+                        <!--    Selection bar-->
+                        <form>
+                            <h2>Search Coffee</h2>
+                            <div class="input-group">
+                                <label for="roast-selection"></label>
+
+                                <select class="custom-select" id="roast-selection"
+                                        aria-label="Example select with button addon">
+                                    <option selected>Choose...</option>
+                                    <option>all</option>
+                                    <option>light</option>
+                                    <option>medium</option>
+                                    <option>dark</option>
+                                </select>
+                            </div>
+
+                        </form>
+                        <!--searchbar-->
+
+                        <div class="input-group input-group-lg">
+                            <label for="myInput"></label>
+                            <input type="text" id="myInput" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" placeholder="Search by name"
+                                   title="Type in a name">
+                        </div>
+
+                        <hr>
+                        <!--add coffee input-->
+                        <form>
+                            <h2>Add a Coffee</h2>
+                            <div class="input-group">
+                                <label for="addRoast"></label>
+
+                                <select class="custom-select" id="addRoast"
+                                        aria-label="Example select with button addon">
+                                    <option>light</option>
+                                    <option>medium</option>
+                                    <option>dark</option>
+
+                                </select>
+                            </div>
+                        </form>
+
+                        <div class="input-group input-group-lg">
+                            <label for="addCoff"></label>
+                            <input type="text" id="addCoff" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-lg" placeholder="Name of coffee"
+                                   title="Type in a name">
+                        </div>
+
+
+                        <button id="addCoffeeButton" type="button" class="btn btn-outline-secondary buttonColor">Add it!
+                        </button>
+
+                    </div>
+                    <!-- The HTML element that serves as the Mapbox container -->
+                    <div id='map'>
+                        <div id='geocoder' class='geocoder'></div>
+
+                    </div>
+
+                    <div id="atlas"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<!-- Custom JS -->
+
+<!--Where the coffee is displayed from array-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</body>
+</html>

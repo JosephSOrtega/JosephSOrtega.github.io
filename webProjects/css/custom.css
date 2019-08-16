@@ -1,0 +1,193 @@
+.jumbotron {
+    background-image: url("https://java.codeup.com/examples/bootstrap/pizza.png");
+    padding: 60px 0px 60px 0px;
+}
+h1 {
+    color: black;
+    text-align: center;
+    background: rgb(245, 245, 245);
+}
+.menu-color-pizza {
+    background: steelblue;
+    color: whitesmoke;
+}
+.margin-for-items {
+    margin: 1em;
+    border: 1px lightgray solid;
+}
+.float-right-button {
+    float: right;
+}
+.blue-pretty {
+    background: white;
+}
+.nav-tabs {
+    margin: 2em;
+}
+.icon-cart {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: .5em;
+}
+.title-bx {
+    border: black 1px solid;
+}
+.icon-cart .cart-line-1 {
+    width: 15%;
+    height: 7%;
+    position: absolute;
+    left: 8%;
+    top: 25%;
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+    background-color: #000;
+    border-bottom-left-radius: 35%;
+}
+
+.icon-cart .cart-line-2 {
+    width: 35%;
+    height: 7%;
+    position: absolute;
+    left: 6%;
+    top: 40%;
+    -webkit-transform: rotate(80deg);
+    -moz-transform: rotate(80deg);
+    -ms-transform: rotate(80deg);
+    transform: rotate(80deg);
+    background-color: #000;
+}
+
+.icon-cart .cart-line-2:before {
+    content: "";
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    left: 45%;
+    top: -280%;
+    -webkit-transform: rotate(-80deg);
+    -moz-transform: rotate(-80deg);
+    -ms-transform: rotate(-80deg);
+    transform: rotate(-80deg);
+    background-color: inherit;
+}
+
+.icon-cart .cart-line-2:after {
+    content: "";
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    left: 59%;
+    top: -670%;
+    background-color: inherit;
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    transform: rotate(40deg);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 25%;
+}
+
+.icon-cart .cart-line-3 {
+    width: 30%;
+    height: 7%;
+    position: absolute;
+    left: 33%;
+    top: 45%;
+    background-color: #000;
+}
+
+.icon-cart .cart-line-3:after {
+    content: "";
+    width: 124%;
+    height: 100%;
+    position: absolute;
+    top: -150%;
+    left: -5%;
+    background-color: inherit;
+}
+
+.icon-cart .cart-wheel {
+    width: 12%;
+    height: 12%;
+    background-color: #000;
+    border-radius: 100%;
+    position: absolute;
+    left: 28%;
+    bottom: 20%;
+}
+
+.icon-cart .cart-wheel:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 100%;
+    position: absolute;
+    left: 200%;
+    bottom: 0;
+}
+.top-card {
+    color: whitesmoke;
+    background: darkorange!important;
+    font-size: 2.7em!important;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: normal;
+    text-shadow: -.5px -.5px 0 black, .5px -.5px 0 black, -.5px .5px 0 black, .5px .5px 0 black;
+}
+.btn-primary {
+    background: darkorange!important;
+    border: darkorange!important;
+    font-size: 24px;
+    flex: none!important;
+}
+.card {
+    border-radius: 5px;
+}
+body {
+    background: whitesmoke;
+}
+* {
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+}
+.display-4 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+}
+li {
+    font-size: 24px;
+}
+.btn-group {
+    justify-content: flex-end;
+}
+.navbar-brand {
+    font-size: 4em;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: black!important;
+}
+.container {
+    background: lightsteelblue;
+    padding-top: 30px;
+
+}
+h2 {
+    font-family: 'Dancing Script', cursive!important;
+    font-weight: bold!important;
+    font-size: 3em!important;
+}
+.form-inline {
+    padding-top: .3em;
+}
+.form-control {
+    font-size: 0.7em!important;
+}
+.btn-outline-success {
+    color: grey!important;
+    border: grey 1px solid;
+}

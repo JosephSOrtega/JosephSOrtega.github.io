@@ -1,0 +1,137 @@
+.main-header  {
+    background: #3A5997;
+    padding: .5em;
+    /*width: auto;*/
+    /*border: solid lightgray 1px;*/
+    border-radius: 5px;
+    /*top: 0;*/
+    /*position: relative;*/
+    color: whitesmoke;
+    margin: 0;
+}
+body {
+    background: #ECF0F4;
+    width: 100%;
+    /*columns: 1;*/
+}
+ul {
+    list-style-type: none;
+}
+li {
+    display: inline-block;
+    color: #3C5C99;
+    padding: .5em;
+}
+
+.left-box {
+    width: 40%;
+    top: 25px;
+    position: relative;
+    margin-left: 2em;
+    max-width: 425px;
+    min-width: 350px;
+}
+footer {
+    background: whitesmoke;
+    padding: .5em;
+    float: bottom;
+    clear: both;
+    position: static;
+    min-width: 970px;
+}
+.login {
+    bottom: 900px;
+    right: 50px;
+    background: inherit;
+    position: absolute;
+    color: whitesmoke;
+    text-align: left;
+    float: left;
+}
+.boxes {
+    padding: 8px;
+    margin: .5em 0;
+    width: calc(100% - 8px);
+    text-align: left;
+    border-radius: 5px;
+    border: 1px lightgray solid;
+    font-size: 1.5em;
+}
+.new-name {
+    width: calc(45% - 8px);
+}
+.lastname {
+    float: right;
+    text-align: center;
+}
+.firstname {
+    float: left;
+    text-align: center;
+}
+.why {
+    float: right;
+    position: relative;
+    color: #3C5C99;
+    font-size: .5em;
+    bottom: 5px;
+    left: 10px;
+    display: inline;
+
+}
+.gender {
+    margin: 1em;
+}
+.terms {
+    font-size: .5em;
+}
+.bn {
+    background: green;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 1em;
+    padding: .5em;
+    width: 250px;
+    border-radius: 10px;
+    border: lightgray 1px solid;
+}
+header {
+    top: 0;
+    width: 100%;
+    height: 103px;
+}
+.login-left {
+    right: 175px;
+    top: 55px;
+    position: relative;
+
+}
+h1 {
+    font-size: 3em;
+}
+/*.container {*/
+/*    overflow: auto;*/
+
+/*}*/
+article.container {
+    min-width: 350px;
+}
+section {
+    min-width: 10px;
+    font-size: 1.5em;
+}
+main {
+    width: 40%;
+    float: left;
+    min-width: 425px;
+    margin-right: 5em;
+}
+article {
+    float: left;
+    width: 35%;
+    /*position: absolute;*/
+    /*display: inline-block;*/
+    /*bottom: 200px;*/
+    /*right: 50px;*/
+    margin-top: 0;
+    /*display: flex;*/
+}

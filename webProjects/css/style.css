@@ -1,0 +1,52 @@
+/*
+this file is named "site.css" and is in a directory named "css"
+*/
+
+.fancy-header {
+    color: deepskyblue;
+    text-decoration: underline orange;
+}
+.look-at-me {
+    color: red;
+    text-decoration: underline;
+    font-family: "Apple LiGothic";
+}
+.bigger-font {
+    font-size: 20px;
+}
+h1 {
+    color: orange;
+    text-decoration: underline lightblue;
+}
+h3 {
+    color: lightblue;
+    text-decoration: underline orange;
+    font-style: italic;
+    font-weight: bold;
+}
+body {
+    background-color: dimgrey;
+    color: whitesmoke;
+}
+a {
+    color: orange;
+}
+ul {
+    list-style-type: lower-roman;
+}
+td, tr {
+    padding: 10px;
+    font-size: 16px;
+}
+a:link  {
+    color: yellow;
+}
+a:visited {
+    color: pink;
+}
+a:hover {
+     color: sandybrown;
+}
+a:active {
+      color: blue;
+  }
